@@ -1,4 +1,6 @@
-﻿using CatalogoFornecedores.Data.Context;
+﻿using AutoMapper;
+using CatalogoFornecedores.API.Configuration;
+using CatalogoFornecedores.Data.Context;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Mvc;
@@ -24,7 +26,11 @@ namespace CatalogoFornecedores.API
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             });
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
+            services.AddAutoMapper(typeof(Startup));
+
+            services.WebApiConfig();
+
+            services.ResolveDependencies();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
