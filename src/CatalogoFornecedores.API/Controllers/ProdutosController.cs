@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace CatalogoFornecedores.API.Controllers
 {
-    [Route("api/fornecedores")]
+    [Route("api/produtos")]
     public class ProdutosController : MainController
     {
         private readonly IProdutoRepository _produtoRepository;
@@ -139,7 +139,7 @@ namespace CatalogoFornecedores.API.Controllers
             }
 
             var imageDataByteArray = Convert.FromBase64String(arquivo);
-            var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/app/demo-webapi/src/assets", imgNome);
+            var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/imagens", imgNome);
 
             if (System.IO.File.Exists(filePath))
             {
@@ -160,7 +160,7 @@ namespace CatalogoFornecedores.API.Controllers
                 return false;
             }
 
-            var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/app/demo-webapi/src/assets", imgPrefixo + arquivo.FileName);
+            var path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/imagens", imgPrefixo + arquivo.FileName);
 
             if (System.IO.File.Exists(path))
             {
