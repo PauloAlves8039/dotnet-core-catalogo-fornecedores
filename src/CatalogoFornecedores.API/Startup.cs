@@ -45,7 +45,8 @@ namespace CatalogoFornecedores.API
             }
 
             app.UseHttpsRedirection();
-            app.UseMvc();
+            app.UseMvcConfiguration();
+            app.UseMvc();            
         }
     }
 }
